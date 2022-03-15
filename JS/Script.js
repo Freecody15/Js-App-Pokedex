@@ -28,9 +28,6 @@ for (let i = 0; i < pokemonList.length; i++) {
       else if (pokemonList[i].height < 1) {
         document.write(' - This is a small Pokemon!');
       }
-      else if (pokemonList[i].height > 1.8){
-        document.write(' - This is a HUGE Pokemon!');
-      }
 
     }
 }
