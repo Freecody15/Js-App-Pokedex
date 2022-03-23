@@ -48,19 +48,3 @@ return {
   addListItem: addListitem,
   showDetails: showDetails,
 }
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write('<br>' + pokemonList[i].name + (' , Height: ') + pokemonList[i].height);  
-  if (pokemonList[i].height >= 1.8) {
-    document.write(' - Wow, that\'s a big Pokemon!');
-
-    if (pokemonList[i].height <= 1.7 && pokemonList[i].height >= 1) {   
-      document.write(' - This is a medium size Pokemon!');
-    }
-    else if (pokemonList[i].height <= 1) {
-      document.write(' - This is a small Pokemon!');
-    }
-
-  }
-}
-
-
