@@ -31,7 +31,7 @@ function showDetails (pokemon) {
   console.log(pokemon.name)
 }
 
-Function addListItem(pokemon) {
+function addListItem(pokemon) {
   let pokemonList = document.querySelector(".pokemon-list");
   let listPokemon = document.createElement("li");
   let button = document.createElement("button");
