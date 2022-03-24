@@ -3,55 +3,46 @@ let pokemonRepository = (function () {
     {
       name: 'Gyarados',
       height: 6.5,
-      weight: 50
+      weight: 50,
       type: ['Water', 'flying']
     },
 
     {
       name: 'Pikachu',
       height: 1.04,
+      weight: 50,
       type: ['electric']
     },
 
     {
       name: 'Ninetales',
       height: 1.1,
+      weight: 50,
       type: ['fire']
     },
 ];
 
 function add (pokemon) {
-  return pokemonList.push(pokemon)
+  pokemonList.push(pokemon);
 }
 
 function getAll () {
-  return pokemonList
-}
-
-function showDetails (pokemon) {
-  console.log(pokemon.name)
-}
-
-function addListItem(pokemon) {
-  let pokemonList = document.querySelector(".pokemon-list");
-  let listPokemon = document.createElement("li");
-  let button = document.createElement("button");
-  button.innerText = pokemon.name;
-  button.classList.add("button-class");
-  listPokemon.appendChild(button);
-  pokemonList.appendChild(listPokemon);
-  addListener(button, pokemon);
+  return pokemonList;
 }
 
 return {
   add: add,
   getAll: getAll,
-  addListItem: addListitem,
+  addListItem: addListItem,
   showDetails: showDetails,
-}
-
-}
+};
 })();
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon)
+
+pokemonRepository.getAll().forEach(function(pokemon){
+  document.write(pokemon.name + ' height: '+ pokemon.height + ', ');
+  document.write ('<br/>');
 });
+
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: 'Eevee' });
+console.log(pokemonRepository.getAll());
