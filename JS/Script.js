@@ -1,8 +1,9 @@
-let pokeRepository = (function () {
+let pokemonRepository = (function () {
   let pokemonList = [
     {
       name: 'Gyarados',
       height: 6.5,
+      weight: 50
       type: ['Water', 'flying']
     },
 
@@ -19,7 +20,7 @@ let pokeRepository = (function () {
     },
 ];
 
-function add (Pokemon) {
+function add (pokemon) {
   return pokemonList.push(pokemon)
 }
 
