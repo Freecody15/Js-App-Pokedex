@@ -33,16 +33,17 @@ function getAll () {
 return {
   add: add,
   getAll: getAll,
-  addListItem: addListItem,
-  showDetails: showDetails,
 };
 })();
+
+pokemonRepository.add({
+  name:'Eevee',
+  height: 0.3,
+  weight: 6.5,
+  type: ['normal']
+});
 
 pokemonRepository.getAll().forEach(function(pokemon){
   document.write(pokemon.name + ' height: '+ pokemon.height + ', ');
   document.write ('<br/>');
 });
-
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Eevee' });
-console.log(pokemonRepository.getAll());
