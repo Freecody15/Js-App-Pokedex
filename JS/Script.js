@@ -38,9 +38,12 @@ return {
 };
 })();
 
-pokemonRepository.getAll().forEach(function(pokemon){
-  document.write(pokemon.name + ' height: '+ pokemon.height + ', ');
-  document.write ('<br/>');
+pokemonRepository.getAll().forEach(function (pokemon) {
+  let pokemonList = document.querySelector(".pokemon-list");
+  let listpokemon = document.createElement("li");
+  let button = document.createElement("button";)
+  button.innerText = "ph";
+  button.classList.add("buttonclass")
 });
 
 console.log(pokemonRepository.getAll());
