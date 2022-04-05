@@ -43,7 +43,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
   let listpokemon = document.createElement("li");
   let button = document.createElement("button";)
   button.innerText = "ph";
-  button.classList.add("buttonclass")
+  button.classList.add("button-class")
 });
 
 console.log(pokemonRepository.getAll());
