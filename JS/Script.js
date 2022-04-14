@@ -2,48 +2,59 @@ let pokemonRepository = ( function () {
 
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  //  modalContainer
   let modalContainer = document.querySelector('#modal-container');
 
+  //  Assign -getAll- function to shows all pokemon
   function getAll() {
       return pokemonList;
   }
 
+  //  Assign -add- function to add pokemon to end of array
   function add(pokemon) {
       pokemonList.push(pokemon);
   }
 
+  //  Shows loading message by removing 'hidden'
   function showLoadingMessage() {
       let loadingMessage = document.querySelector('.loading-pokedex')
       loadingMessage.classList.remove('hidden')
   }
 
+  //  Hides loading message by adding "hidden"
   function hideLoadingMessage() {
       let loadingMessage = document.querySelector('.loading-pokedex')
       loadingMessage.classList.add('hidden')
   }
 
   function addListItem(pokemon) {
+      // Setting a list of variables
       let pokedexList = document.querySelector('.pokemon-list');
       let listPokemon = document.createElement('li');
       let button = document.createElement('button');
 
+      // Button text and styling
       button.innerText = pokemon.name ;
       button.classList.add('button-style');
 
+      // Append list and button
       listPokemon.appendChild(button);
       pokedexList.appendChild(listPokemon);
 
+      // Event listener - click on button - shows pokemon details
       button.addEventListener('click', function(event){
           showDetails(pokemon);
       });
   }
 
+  // Show detials function
   function showDetails(pokemon) {
       loadDetails(pokemon).then(function (){
           showModal(pokemon);
       });
   }
 
+  // Load List function
   function loadList () {
       showLoadingMessage();
 
@@ -64,6 +75,7 @@ let pokemonRepository = ( function () {
       });
   }
 
+  // Load Details function
   function loadDetails(item) {
       showLoadingMessage();
 
@@ -82,16 +94,20 @@ let pokemonRepository = ( function () {
       });
   }
 
+  //  event listener so showModal function starts on click
   document.querySelector('#show-modal').addEventListener('click', () => {
       showModal('Modal title', 'This is the modal content!');
   });
 
+  //  event listener to window for keyboard input esc
   window.addEventListener('keydown', (e) => {
+      //  if user esc and modal container is visible, executes hideModal function
       if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
           hideModal();
       }
   });
 
+  // event listener when user clicks outside
   modalContainer.addEventListener('click', (e) => {
       let target = e.target;
       if (target === modalContainer) {
@@ -99,12 +115,17 @@ let pokemonRepository = ( function () {
       }
   });
 
+
+  //  function to show modal
   function showModal(pokemon) {
 
       modalContainer.innerHTML = '';
+
+      //  creates modal inside modal container
       let modal = document.createElement('div');
       modal.classList.add('modal')
 
+      //  add the new modal content (button, title and content)
       let closeButtonElement =  document.createElement('button');
       closeButtonElement.classList.add('modal-close');
       closeButtonElement.innerText = 'X';
@@ -135,6 +156,7 @@ let pokemonRepository = ( function () {
       imageElement.classList.add('modal-image');
       imageElement.src = pokemon.imageUrl;
 
+      //  append contents into modal, and append modal into modal container
       modal.appendChild(closeButtonElement);
       modal.appendChild(imageElement);
       modal.appendChild(titleElement);
@@ -142,9 +164,12 @@ let pokemonRepository = ( function () {
       modal.appendChild(weightElement);
       modal.appendChild(typeElement);
       modalContainer.appendChild(modal);
+
+      //  finally adds .is-visible class to modal container to appear
       modalContainer.classList.add('is-visible');
   }
 
+  //  function to hide modal
   function hideModal() {
       modalContainer.classList.remove('is-visible');
   }
@@ -159,6 +184,7 @@ let pokemonRepository = ( function () {
   };
 })();
 
+//  Show all 151 pokemon using API
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach( function (pokemon) {
       pokemonRepository.addListItem(pokemon)
