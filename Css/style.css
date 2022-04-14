@@ -3,10 +3,10 @@
 }
 
 :root {
-  --main-text-color: rgb(78, 255, 104);
+  --main-text-color: rgb(49, 159, 133);
   --main-background-color: rgb(247, 247, 247);
-  --button-text-color: darkslateblue;
-  --button-background-color: yellow;
+  --button-text-color: black;
+  --button-background-color: #ff7950;
 
 }
 
@@ -40,7 +40,7 @@ ul {
   list-style: none;
   justify-content: center;
   padding-left: 0px;
-  margin: 0 20px;
+  margin: 0 46%;
 }
 
 .button-style {
