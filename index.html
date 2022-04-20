@@ -9,15 +9,42 @@
   </head>
 
   <body>
-    <h1>Pokedex</h1>
-
-    <button id="show-modal">Show modal</button>
-    <div id="modal-container"></div>
-
-    <div class="pokedex-container">
-      <p class="loading-pokedex hidden">Loading Pokedex....</p>
-    </div>
-    <ul class="pokemon-list"></ul>
+    <header class="page-header">
+      <nav class="navbar">
+        <a class="navbar-brand" href="index.html" >
+        </a>
+  
+        <form class="form-inline">
+          <input class="form-control rounded" id="myInput" type="search" placeholder="Search" aria-label="Search"/>
+        </form>
+  
+        <div class="sr-only">Navigation bar</div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <ul class="list-group list-unstyled flex-row flex-wrap w-100 just-content: center" data-toggle="modal" data-target="#pokemonModal"></ul>
+            <div class="sr-only">list of pokemon</div>
+            <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="sr-only">Pokemon details</div>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="col-12 modal-title text-capitalize" id="exampleModalLabel"></h5>
+                  </div>
+                  <div class="modal-body text-capitalize">...</div>
+                  <div>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">X</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="js/js-promise-polyfill.js"></script>
     <script src="JS/fetch-polyfill.js"></script>
