@@ -10,6 +10,17 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
+    function addSingle(item) {
+        if (validate(item)) {
+            items.push(item);
+        } else {
+            /* eslint-disable no-console */
+            console.error('Error when validating item', item);
+            /* eslint-enable no-console */
+        }
+    }
+
+
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.list-group');
         let listPokemon = document.createElement('li');
