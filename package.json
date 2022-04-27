@@ -2,8 +2,9 @@
   "name": "npm",
   "version": "1.0.0",
   "description": "c",
-  "main": "C",
+  "main": "Script",
   "scripts": {
+    "lint": "eslint src --ext .ts,.tsx",
     "test": "c"
   },
   "repository": {
