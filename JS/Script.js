@@ -1,4 +1,4 @@
-let pokemonRepository = (function () {
+const pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -10,15 +10,6 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    function addSingle(item) {
-        if (validate(item)) {
-            items.push(item);
-        } else {
-            /* eslint-disable no-console */
-            console.error('Error when validating item', item);
-            /* eslint-enable no-console */
-        }
-    }
 
 
     function addListItem(pokemon) {
@@ -84,7 +75,7 @@ let pokemonRepository = (function () {
         imageElement.attr("src", pokemon.imageUrl);
         let imageElementBack = $('<img class=\'pokemon-modal-image\'>');
         imageElementBack.attr("src", pokemon.imageUrlBack);
-        let secondElement = document.createElement('p');
+        const secondElement = document.createElement('p');
         pokemon.types.forEach((type, index) => {
             if (index === pokemon.types.length - 1) {
                 secondElement.innerText += type.type.name;
@@ -105,7 +96,7 @@ let pokemonRepository = (function () {
 
     $(document).ready(function () {
         $('#myInput').on('keyup', function () {
-            let value = $(this).val().toLowerCase();
+            const value = $(this).val().toLowerCase();
             $(".search-button").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
